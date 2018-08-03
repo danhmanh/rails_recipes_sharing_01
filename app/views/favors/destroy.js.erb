@@ -1,1 +1,1 @@
-$("#ajax-like-unlike").html("<%= j render('like', recipe: @recipe, favor: @favor) %>");
+$("#ajax-like-unlike-<%= recipe.id %>").html("<%= j render('like', recipe: @recipe, favor: @favor) %>");
