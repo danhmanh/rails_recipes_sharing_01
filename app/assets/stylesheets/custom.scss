@@ -5,6 +5,14 @@ $white: #ffffff;
 $black: #262626;
 $wine-color: #a31818;
 
+#main-jumbotron {
+  background-image: url("https://static4.depositphotos.com/1013388/324/v/950/depositphotos_3248193-stock-illustration-abstract-food-background.jpg");
+
+  .img-carousel {
+    width: 100%;
+    height: 250px;
+  }
+}
 .recipe {
   position: relative;
   text-align: center;
@@ -19,9 +27,14 @@ $wine-color: #a31818;
 }
 
 .category {
-  margin-top: 20px;
-  height: 44px;
-  width: 149px;
+  width: 150px;
+  margin-top: 15px;
+
+
+  .category-title {
+    width: 100%;
+    font-size: 20px;
+  }
 }
 
 .item-recipe {
@@ -61,6 +74,7 @@ li { list-style-type:none;}
 
 .avatar-show {
   width: 175px;
+  height: 175px ;
 }
 
 .like-text{

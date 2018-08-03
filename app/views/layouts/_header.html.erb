@@ -17,7 +17,7 @@
         <% end %>
         </li>
 
-        <li><%= link_to "#" do %>
+        <li><%= link_to users_path do %>
           <i class="fa fa-users"></i>
           <span><%= t ".top_member" %></span>
         <% end %>
@@ -34,7 +34,7 @@
       <!-- NAVBAR RIGHT -->
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
-          <%= link_to new_recipe_path, class: "btn btn-default navbar-btn" do %>
+          <%= link_to new_recipe_path, class: "btn btn-danger navbar-btn" do %>
             <i class="fa fa-plus-square"></i> <%= t ".create_recipe" %>
           <% end %>
           <button class="btn btn-default dropdown-toggle" type="button"
