@@ -14,3 +14,4 @@ img_icon_size: 50
 recipe_new: 8
 limit_top_user_home: 6
 num_top_user: 20
+accept_img_file: "image/jpeg,image/gif,image/png,image/jpg"
