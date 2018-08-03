@@ -6,4 +6,5 @@ class Favor < ApplicationRecord
 
   scope :rela, ->(user_id, targetable){where user_id: user_id, targetable: targetable, status: 1}
   scope :rela_bookmark, ->(user_id, targetable){where user_id: user_id, targetable: targetable, status: 2}
+  scope :like_counter, ->(recipe_id){where status: 1, targetable_id: recipe_id}
 end

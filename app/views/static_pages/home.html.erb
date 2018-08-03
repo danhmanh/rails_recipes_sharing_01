@@ -2,12 +2,14 @@
   <!-- START JUMBOTRON -->
   <div class="jumbotron" id="main-jumbotron">
     <h1><%= t ".today" %></h1>
+    <div class="search-form">
     <%= form_for :reci, url: search_path, html: {class: "navbar-form"}, method: :get do |form| %>
-      <div class="">
         <%= text_field_tag :reci, params[:reci], class: "form-control" %>
-        <%= submit_tag "Search", name: nil, class: "glyphicon glyphicon-search" %>
-      </div>
+        <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+          <i class="fa fa-search"></i>
+        <% end %>
     <% end %>
+    </div>
     <p><%= t ".description" %></p>
   </div>
   <!-- END JUMBOTRON -->
@@ -22,7 +24,7 @@
     <div class="col-md-9">
       <h1><%= t ".trending" %></h1>
       <div class="row">
-        <%= render "recipe" %>
+          <%= render @recipes %>
       </div>
     </div>
     <!-- END RECIPES -->

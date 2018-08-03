@@ -20,4 +20,8 @@ class Recipe < ApplicationRecord
 
   validates :name, :description, :purpose, :ready_in,
     :difficult_level, presence: true
+
+  def like_counter
+    Favor.like_counter(self).count
+  end
 end

@@ -82,3 +82,28 @@ input[type=number]::-webkit-inner-spin-button {
 .comment :hover {
   background: white;
 }
+
+.grey-text {
+  color: grey ;
+}
+
+.recipe-thumbnail {
+  width: 280px;
+  height: 470px;
+
+  .recipe-thumb-img {
+    transition: transform .2s;
+    margin: 0 auto;
+  }
+  .recipe-thumb-img:hover {
+    transform: scale(1.1);
+  }
+
+  .recipe-thumb-name {
+    font-size: 18px ;
+  }
+
+  .recipe-thumb-user-name {
+    font-size: 12px;
+  }
+}
