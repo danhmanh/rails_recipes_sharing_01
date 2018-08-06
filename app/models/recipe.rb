@@ -9,7 +9,8 @@ class Recipe < ApplicationRecord
   mount_uploader :cover_photo, CoverPhotoUploader
 
   scope :desc, ->{order created_at: :desc}
-  scope :hot_recipe, ->{where "created_at >= ?", Settings.hot_recipe.day.ago}
+  scope :limit_recipe, ->{limit Settings.limit_recipe}
+  scope :hot_recipe, ->{(where "created_at >= ?", Settings.hot_recipe.day.ago).limit(Settings.limit_recipe)}
   scope :feed, ->(f_ids, id){where("user_id IN (?) OR user_id = ?", f_ids, id)}
   scope :search, ->(reci){where "name LIKE ?", "%#{reci}%"}
   scope :sort_by_name, ->{order name: :desc}

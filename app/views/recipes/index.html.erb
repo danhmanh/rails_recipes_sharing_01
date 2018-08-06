@@ -1,8 +1,7 @@
 <ul class="recipes">
-  <% @recipes.each do |recipe| %>
-    <li>
-      <%= link_to recipe.name, recipe %>
-      <%= recipe.description %>
-    </li>
-  <% end %>
+  <div class = "row">
+    <h1><%= Recipe.all.count %> món ngon mỗi ngày</h1>
+    <%= render @recipes, divide: Settings.col_3 %>
+  </div>
+  <%= paginate @recipes, theme: "twitter-bootstrap-3" %>
 </ul>

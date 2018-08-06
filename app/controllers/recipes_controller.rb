@@ -2,7 +2,8 @@ class RecipesController < ApplicationController
   before_action :find_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.desc.page(params[:page])
+      .per Settings.recipe_per_index
   end
 
   def new

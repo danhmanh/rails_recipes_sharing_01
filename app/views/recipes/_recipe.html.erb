@@ -1,0 +1,43 @@
+<div class="col-md-<%= divide %>">
+  <div class="well recipe-thumbnail">
+    <%= image_tag(recipe.cover_photo.to_s,
+    class: "img-rounded center-block recipe-thumb-img", size: "240x240") %>
+    <div class="text-center recipe-info">
+      <br>
+      <ul class="list-inline">
+        <li><i class="fa fa-bolt grey-text"></i> <%= recipe.difficult_level %></li>
+        <li><i class="fa fa-clock-o grey-text"></i> <%= recipe.ready_in %> <%= t ".hour" %></li>
+        <li><i class="fa fa-eye grey-text"></i> ?</li>
+      </ul>
+
+      <%= link_to recipe.name, recipe_path(recipe), class: "recipe-thumb-name" %>
+        <% ingredients = "" %>
+        <% recipe.recipe_ingredients.each do |ingredient| %>
+          <% ingredients << "#{ingredient.name}, " %>
+        <% end %>
+        <p class="grey-text"><%= ingredients.truncate(30).downcase %></p>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-md-7">
+        <span>
+          <%= image_tag recipe.user.avatar.url.to_s, class: "img-circle", size: "35x35" %>
+          <p class="recipe-thumb-user-name"><b><%= link_to recipe.user.name, recipe.user %></b></p>
+        </span>
+      </div>
+      <div class="col-md-5">
+        <div class="btn-group">
+            <%= link_to "#", class: "btn btn-danger btn-sm" do %>
+              <span>? <i class="fa fa-heart-o"></i></span>
+            <% end %>
+            <%= link_to "#", class: "btn btn-primary btn-sm" do %>
+              <i class="fa fa-plus"></i>
+            <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

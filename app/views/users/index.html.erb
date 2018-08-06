@@ -4,8 +4,8 @@
     <div class="col-md-2">
       <div class="well text-center">
         <% if user.avatar.url %>
-          <%= link_to image_tag(user.avatar.to_s, class: "img-responsive img-circle
-            center-block avatar-show", size: "250x150"), user_path(user) %>
+          <%= link_to image_tag(user.avatar.to_s, class: "img-circle
+            center-block", size: "150x150"), user_path(user) %>
         <% else %>
           <%= link_to image_tag("default_avatar.png", class: "img-responsive
             img-circle center-block ", size: "#{Settings.img_size_fill}x#{Settings.img_size_fill}"), user_path(user) %>

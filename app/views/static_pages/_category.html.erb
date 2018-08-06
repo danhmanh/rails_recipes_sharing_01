@@ -2,16 +2,16 @@
   <% @categories.take(Settings.num_category).each do |cate| %>
     <li class="col-xs-2">
       <%= link_to cate.name, category_path(cate.id), class: "btn btn-lg
-        btn-primary category" %></li>
+        btn-danger category" %></li>
   <% end %>
   <li calss="col-xs-2">
-    <button class="btnsh btn btn-lg btn-primary category">...</button>
+    <button class="btnsh btn btn-lg btn-danger category">...</button>
   </li>
 </ul>
 <ul class="thumbnails showhide">
   <% @categories.drop(Settings.num_category).each do |cate| %>
     <li class="col-xs-2">
       <%= link_to cate.name, category_path(cate.id), class: "btn btn-lg
-        btn-primary category" %></li>
+        btn-danger category" %></li>
   <% end %>
 </ul>

@@ -4,7 +4,7 @@
       <div class="sidebar-nav-fixed affix user-info">
         <div class="well center-block text-center">
             <%= image_tag @user.avatar.url.to_s,
-              class: "img-responsive img-rounded" %>
+              class: "img-responsive img-circle center-block" %>
             <p><b><%= @user.name %></b></p>
             <p><%= @user.recipes.count %> <%= t ".recipe" %></p>
             <p><%= @user.followers.count %> <%= t ".follower" %></p>
@@ -20,7 +20,7 @@
      <!-- START RECIPE -->
     <div class="col-md-7">
       <div class="well main-recipe">
-        <%= image_tag @recipe.cover_photo.url.to_s, class: "img-responsive" %>
+        <%= image_tag @recipe.cover_photo.url.to_s, class: "img-recipe" %>
         <h1><%= t ".making" %><%= @recipe.name %></h1>
         <p><%= @recipe.description %></p>
          <div class="row text-center">
@@ -114,7 +114,7 @@
               <p><%= step.content %></p>
               <div class="row">
                 <% step.photos.each do |photo| %>
-                    <div class="col-md-6">
+                    <div class="col-md-6 img-step">
                       <%= image_tag photo.url.to_s, class: "img-responsive" %>
                     </div>
                 <% end %>
@@ -142,8 +142,8 @@
     <!-- END RECIPE -->
      <!-- START SAME PURPOSE -->
     <div class="col-md-3">
-      <div class="sidebar-nav-fixed pull-right affix">
-        <div class="well same-purpose">
+      <div class="sidebar-nav-fixed pull-right affix same-purpose">
+        <div class="well">
           <p><b><%= t ".same_purpose" %></b></p>
           <hr>
         </div>
