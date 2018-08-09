@@ -6,4 +6,5 @@ class Favor < ApplicationRecord
 
   scope :rela, ->(user_id, targetable){where user_id: user_id, targetable: targetable, status: 1}
   scope :rela_bookmark, ->(user_id, targetable){where user_id: user_id, targetable: targetable, status: 2}
+  scope :bookmark_list, ->(user_id){where(user_id: user_id, status: 2).pluck(:targetable_id)}
 end

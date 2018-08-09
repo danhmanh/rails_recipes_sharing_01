@@ -29,6 +29,12 @@
             <span><%= t "feeds.index.feed" %></span>
           <% end %>
           </li>
+
+          <li><%= link_to bookmarks_path do %>
+            <i class="fa fa-bookmark"></i>
+            <span><%= t "feeds.index.bookmark" %></span>
+          <% end %>
+          </li>
         <% end %>
       </ul>
       <!-- NAVBAR RIGHT -->
