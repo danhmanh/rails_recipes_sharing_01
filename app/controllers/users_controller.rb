@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
   before_action :find_user, except: [:new, :create, :index]
   before_action :correct_user, except: [:show, :index]
 
@@ -43,16 +44,9 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find_by id: params[:id]
-
     return if @user
     flash[:danger] = t ".cant_find"
     redirect_to root_path
-  end
-
-  def logged_in_user
-    return if logged_in?
-    flash[:danger] = t "please_login"
-    redirect_to login_url
   end
 
   def correct_user
@@ -60,7 +54,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit :name, :address, :email, :avatar, :password,
-      :password_confirmation
+    params.require(:user).permit :name, :address, :email, :avatar,
+     :password, :password_confirmation
   end
 end

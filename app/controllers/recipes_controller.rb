@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
   before_action :find_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, except: [:show, :index]
+  impressionist actions: [:show]
 
   def index
     @recipes = Recipe.desc.page(params[:page])
@@ -25,8 +27,10 @@ class RecipesController < ApplicationController
 
   def show
     @user = @recipe.user
-    @favor = Favor.rela current_user.id, @recipe
-    @bookmark = Favor.rela_bookmark current_user.id, @recipe
+    if logged_in?
+      @favor = Favor.rela current_user.id, @recipe
+      @bookmark = Favor.rela_bookmark current_user.id, @recipe
+    end
     @comments = @recipe.comments.all
     @comment = @recipe.comments.build
   end
