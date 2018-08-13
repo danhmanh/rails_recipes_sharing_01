@@ -148,6 +148,21 @@
       <div class="sidebar-nav-fixed pull-right affix same-purpose">
         <div class="well">
           <p><b><%= t ".same_purpose" %></b></p>
+          <% @recipes_same_category.each do |recipe| %>
+            <% unless @recipe.eql? recipe %>
+              <div class="row same-category">
+                <div class="col-md-3">
+                  <%= image_tag(recipe.cover_photo.url.to_s, size: "60x60", class: "img-rounded") %>
+                </div>
+
+                <div class="col-md-9">
+                  <p><b><%= link_to recipe.name, recipe_path(recipe) %><b></p>
+                  <p><%= recipe.user.name %></p>
+                </div>
+              </div>
+            <% end %>
+
+          <% end %>
           <hr>
         </div>
       </div>

@@ -33,6 +33,7 @@ class RecipesController < ApplicationController
     end
     @comments = @recipe.comments.all
     @comment = @recipe.comments.build
+    @recipes_same_category = Category.find_by_id(@recipe.category.ids).recipes.first(5)
   end
 
   def edit; end
