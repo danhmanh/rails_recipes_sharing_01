@@ -47,6 +47,16 @@ class RecipesController < ApplicationController
     end
   end
 
+  def destroy
+    @favor = Favor.find_by_targetable_id @recipe
+    if @favor.destroy && @recipe.destroy
+      flash[:success] = t ".delete_success"
+      redirect_to @recipe.user
+    else
+      flash[:danger] = t ".delete_failed"
+    end
+  end
+
   private
 
   def recipe_params
@@ -63,6 +73,5 @@ class RecipesController < ApplicationController
     return if @recipe
     flash[:danger] = t ".cant_find"
     redirect_to root_path
-
   end
 end

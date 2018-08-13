@@ -1,0 +1,7 @@
+<div class = "row">
+  <h1><%= @bookmarks.count %> công thức ở trong bộ sưu tập của bạn</h1>
+  <% @bookmarks.each do |id| %>
+    <% @recipe = Recipe.find_by_id id %>
+    <%= render @recipe, divide: 3 %>
+  <% end %>
+</div>

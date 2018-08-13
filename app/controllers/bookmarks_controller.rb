@@ -1,4 +1,5 @@
 class BookmarksController < ApplicationController
+  before_action :logged_in_user
   before_action :find_recipe, only: %i(create destroy)
 
   def create
@@ -16,7 +17,11 @@ class BookmarksController < ApplicationController
         flash[:warning] = t ".failed"
       end
     end
-end
+  end
+
+  def index
+    @bookmarks = Favor.bookmark_list(current_user.id) if current_user
+  end
 
   def destroy
     @bookmark = Favor.find_by id: params[:id]

@@ -1,7 +1,7 @@
 class Recipe < ApplicationRecord
   has_many :steps, dependent: :destroy
   has_many :recipe_ingredients, dependent: :destroy
-  has_many :category_recipes, dependent: :destroy
+  has_many :category_recipes, dependent: :delete_all
   has_many :category, through: :category_recipes
   has_many :comments, dependent: :destroy
   belongs_to :user

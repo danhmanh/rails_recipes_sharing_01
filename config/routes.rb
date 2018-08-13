@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get "/feed", to: "feeds#index"
     get "/search", to: "search#index"
     get "/topuser", to: "users#index"
+    get "/bookmarks", to: "bookmarks#index"
 
     resources :categories
     resources :users
